@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RegenCrm.Model;
+using RegenCrm.Service;
+using System;
 
 namespace RegenCrm
 {
@@ -6,7 +8,32 @@ namespace RegenCrm
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //CRUD
+
+            CustomerService customerService = new CustomerService();
+
+            /*
+            var customer = new Customer()
+            {
+                FirstName = "Manos",
+                LastName = "E",
+                Email = "e@gmail.com"
+            };
+         
+            customerService.CreateCustomer(customer);
+            */
+
+            Customer customer = customerService.ReadCustomer(2);
+            try
+            {
+                Console.WriteLine(customer.FirstName);
+            }
+            catch
+            {
+                Console.WriteLine("no such customer");
+            }
         }
+
+      
     }
 }
