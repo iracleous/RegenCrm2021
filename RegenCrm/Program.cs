@@ -10,7 +10,7 @@ namespace RegenCrm
         {
             //CRUD
 
-            CustomerService customerService = new CustomerService();
+            ICustomerService customerService = new CustomerService();
 
             /*
             var customer = new Customer()
