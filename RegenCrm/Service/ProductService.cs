@@ -1,4 +1,5 @@
-﻿using RegenCrm.Model;
+﻿using RegenCrm.dto;
+using RegenCrm.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,32 @@ namespace RegenCrm.Service
         {
             _db = db;
         }
-        public Product CreateProduct(Product product)
+        public ApiResponse<Product> CreateProduct(Product product)
         {
+            if (product==null)
+            {
+                return new ApiResponse<Product>() { 
+                    Data = null, 
+                    Description = "no data were saved. The inserted product was null ", 
+                    StatusCode = 51 };
+            }
+            if (product.Name == null)
+            {
+                return new ApiResponse<Product>()
+                {
+                    Data = null,
+                    Description = "no data were saved. The inserted product name was null ",
+                    StatusCode = 52
+                };
+            }
+
             _db.Products.Add(product);
-            _db.SaveChanges();
-            return product;
+            if (_db.SaveChanges() == 1)
+            {
+                return new ApiResponse<Product>() { Data = product, Description = "ok", StatusCode = 0 };
+            }
+
+            return new ApiResponse<Product>() { Data = null, Description = "no data were saved", StatusCode = 50 };
         }
 
         public bool DeleteProduct(int id)
@@ -40,7 +62,7 @@ namespace RegenCrm.Service
             if (pageCount <= 0) pageCount = 1;
             if (pageSize <= 0 || pageSize > 20) pageSize = 20;
             return _db.Products
-                .Skip((pageCount-1)*pageSize)
+                .Skip((pageCount - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
         }

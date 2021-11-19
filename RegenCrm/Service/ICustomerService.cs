@@ -11,5 +11,7 @@ namespace RegenCrm.Service
     {
         public void CreateCustomer(Customer customer);
         public Customer ReadCustomer(int id);
+
+        public List<Customer> ReadCustomer();
     }
 }

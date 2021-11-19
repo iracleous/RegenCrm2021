@@ -9,17 +9,29 @@ namespace RegenCrm.Service
 {
     public class CustomerService: ICustomerService
     {
+        private readonly CrmDbContext dbContext;
+
+        public CustomerService(CrmDbContext adbContext)
+        {
+            dbContext = adbContext;
+        }
+
         public void CreateCustomer(Customer customer)
         {
-            using var dbContext = new CrmDbContext();
+            
             dbContext.Customers.Add(customer);
             dbContext.SaveChanges();
         }
         public Customer ReadCustomer(int id)
         {
-            var dbContext = new CrmDbContext();
+            
             Customer customer = dbContext.Customers.Find(id);
             return customer;
+        }
+
+        public List<Customer> ReadCustomer()
+        {
+            return dbContext.Customers.ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using RegenCrm.Model;
+﻿using RegenCrm.dto;
+using RegenCrm.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,22 @@ namespace RegenCrm.Service
 {
     public interface IProductService
     {
-        public Product CreateProduct(Product product);
-        public Product ReadProduct(int id);
-        public List<Product> ReadProduct(int pageCount, int pageSize);
+        public ApiResponse<Product> CreateProduct(Product product);
+           public Product ReadProduct(int id);
+            public  List<Product> ReadProduct(int pageCount, int pageSize);
 
-        public Product UpdateProduct(int id, Product product);
+            public Product UpdateProduct(int id, Product product);
 
-        public bool DeleteProduct(int id);
+              public bool DeleteProduct(int id);
+
+
+
+        //   public ApiResponse<Product> ReadProduct(int id);
+        //    public  ApiResponse<List<Product>> ReadProduct(int pageCount, int pageSize);
+
+        //     public ApiResponse<Product> UpdateProduct(int id, Product product);
+
+        //     public ApiResponse<bool> DeleteProduct(int id);
 
     }
 }
