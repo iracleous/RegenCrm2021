@@ -20,7 +20,9 @@ namespace RegenCrm.Service
         {
             
             dbContext.Customers.Add(customer);
-            dbContext.SaveChanges();
+            try { dbContext.SaveChanges();}
+            catch   {  }
+            
         }
         public Customer ReadCustomer(int id)
         {

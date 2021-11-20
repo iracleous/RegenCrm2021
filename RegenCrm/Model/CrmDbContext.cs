@@ -20,5 +20,19 @@ namespace RegenCrm.Model
             // optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=RegenCrm;User ID=sa;Password=passw0rd");
         }
 
-    }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Customer>().ToTable("Customers");
+            modelBuilder.Entity<Product>().ToTable("Products");
+            modelBuilder.Entity<Basket>().ToTable("Baskets");
+            modelBuilder.Entity<BasketProduct>().ToTable("BasketProducts");
+
+            modelBuilder.Entity<Customer>()
+                .HasIndex(customer => customer.Email)
+                .IsUnique();
+        }
+
+
+        }
 }

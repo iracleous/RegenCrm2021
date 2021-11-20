@@ -9,7 +9,12 @@ namespace RegenCrm
     {
         static void Main(string[] args)
         {
+            Test1();
+            
+        }
 
+        static void Test7()
+        {
             /*  ->use case
             A customer registers
             creates basket
@@ -21,7 +26,7 @@ namespace RegenCrm
 
             Customer customer = new Customer
             {
-                FirstName = "Manos",
+                FirstName = "Manos9999999999999999999999999999999999999999999999999999999999999999999999999999999",
                 LastName = "Di",
                 Email = "manos@gmail.com",
                 DateOfBirth = new DateTime(1970, 7, 1)
@@ -36,8 +41,9 @@ namespace RegenCrm
 
             Basket basket = basketService.CreateBasket(customer.Id);
 
-            List<Product> products = productService.ReadProduct(1,10);
+            List<Product> products = productService.ReadProduct(1, 10);
 
+            if (basket == null) return;
             basketService.AddProduct2Basket(basket.Id, products[0].Id);
 
             Console.WriteLine(basketService.GetTotalCost(basket.Id));
@@ -47,8 +53,6 @@ namespace RegenCrm
             Console.WriteLine(basketService.GetTotalCost(basket.Id));
 
         }
-
-
         static void Test6()
         {
             using var crmDbContext = new CrmDbContext();
@@ -148,7 +152,8 @@ namespace RegenCrm
                 Name = "Chips",
                 Description = "Snacks",
                 Price = 1.2m,
-                InventoryQuantity = 10
+                InventoryQuantity = 10,
+                Category = Category.SNACK
             };
 
 

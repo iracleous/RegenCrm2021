@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenCrm", "RegenCrm\RegenCrm.csproj", "{F209D658-4A75-4E92-96B1-2CDFEA426B04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegenCrm", "RegenCrm\RegenCrm.csproj", "{F209D658-4A75-4E92-96B1-2CDFEA426B04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenCrmTest", "RegenCrmTest\RegenCrmTest.csproj", "{9E4A5376-1B5B-460A-BE2C-004A346B0E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegenCrmApi", "RegenCrmApi\RegenCrmApi.csproj", "{35F890CA-A308-47F7-A78D-DC35E1AFD6C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F209D658-4A75-4E92-96B1-2CDFEA426B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F209D658-4A75-4E92-96B1-2CDFEA426B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F209D658-4A75-4E92-96B1-2CDFEA426B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E4A5376-1B5B-460A-BE2C-004A346B0E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E4A5376-1B5B-460A-BE2C-004A346B0E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E4A5376-1B5B-460A-BE2C-004A346B0E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E4A5376-1B5B-460A-BE2C-004A346B0E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F890CA-A308-47F7-A78D-DC35E1AFD6C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F890CA-A308-47F7-A78D-DC35E1AFD6C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F890CA-A308-47F7-A78D-DC35E1AFD6C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F890CA-A308-47F7-A78D-DC35E1AFD6C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

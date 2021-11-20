@@ -16,6 +16,8 @@ namespace RegenCrm.Model
 
         public int InventoryQuantity { get; set; }
 
+        public Category Category { get; set; }
+
         public virtual List<BasketProduct> BasketProducts { get; set; }
     }
 }
