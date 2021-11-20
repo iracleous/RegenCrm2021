@@ -18,7 +18,6 @@ namespace RegenCrm.Model
         {
             optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=RegenCrm;Integrated Security=True");
             // optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=RegenCrm;User ID=sa;Password=passw0rd");
-
         }
 
     }

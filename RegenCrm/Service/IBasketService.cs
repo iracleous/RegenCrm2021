@@ -18,5 +18,9 @@ namespace RegenCrm.Service
 
         public bool FinalizeBasket(int basketId);
 
+        public Basket GetBasket(int basketId);
+
+        public List<BasketProduct> GetBasketProduct(int basketId);
+
     }
 }

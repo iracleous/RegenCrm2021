@@ -9,30 +9,51 @@ namespace RegenCrm
     {
         static void Main(string[] args)
         {
-            
 
             using var crmDbContext = new CrmDbContext();
             var basketService = new BasketService(crmDbContext);
 
-            var productService = new ProductService(crmDbContext);
-            var products = productService.ReadProduct(1, 10);
+            basketService.GetBasketProduct(1).ForEach(item => Console.WriteLine(item.Product.Name));
 
-            var customerService = new CustomerService(crmDbContext);
-            var customers = customerService.ReadCustomer();
+            basketService.RemoveProductFromBasket(1, 1);
+            basketService.GetBasketProduct(1).ForEach(item=> Console.WriteLine(item.Product.Name));
 
-            var basket = basketService.CreateBasket(customers[0].Id);
-
-            var basketProduct =  basketService.AddProduct2Basket(basket.Id, products[0].Id);
-
-
-
-
-            Console.WriteLine("customer Id= " + customers[0].Id);
-            Console.WriteLine("product Id= " + products[0].Id);
-            Console.WriteLine("basketProduct Id= " + basketProduct.Id);
         }
 
-      
+
+        static void Test4()
+        {
+            using var crmDbContext = new CrmDbContext();
+            var basketService = new BasketService(crmDbContext);
+
+            decimal totalCost = basketService.GetTotalCost(1);
+            Console.WriteLine(totalCost);
+        }
+
+
+        static void Test3()
+        {
+
+                using var crmDbContext = new CrmDbContext();
+                var basketService = new BasketService(crmDbContext);
+
+                var productService = new ProductService(crmDbContext);
+                var products = productService.ReadProduct(1, 10);
+
+                var customerService = new CustomerService(crmDbContext);
+                var customers = customerService.ReadCustomer();
+
+                var basket = basketService.CreateBasket(customers[0].Id);
+
+                var basketProduct = basketService.AddProduct2Basket(basket.Id, products[0].Id);
+
+
+                Console.WriteLine("customer Id= " + customers[0].Id);
+                Console.WriteLine("product Id= " + products[0].Id);
+                Console.WriteLine("basketProduct Id= " + basketProduct.Id);
+            
+        } 
+
         static void Test2()
         {
             //list all products
