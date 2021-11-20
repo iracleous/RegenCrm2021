@@ -61,20 +61,10 @@ namespace RegenCrm.Service
 
         public decimal GetTotalCost(int basketId)
         {
-
-            //     Basket basketDb = _db.Baskets.Find(basketId);
-            Basket basketDb = _db.Baskets
-               .Include(p => p.BasketProducts)
-               .ThenInclude(p1 => p1.Product)
-               .Where(basket => basket.Id == basketId)
-               .First();
-
-            if (basketDb == null) return 0m;
-
-            List<BasketProduct> basketProducts = basketDb.BasketProducts;
-
-            return basketProducts[0].Product.Price;
-
+            return _db
+                .BasketProducts
+                .Where(bItem => bItem.Basket.Id == basketId)
+                .Sum(bItem => bItem.Product.Price);
         }
 
         public bool RemoveProductFromBasket(int basketId, int productId)
@@ -87,7 +77,7 @@ namespace RegenCrm.Service
             var basketProductDb = _db.BasketProducts
                 .Where(item => item.Basket == basketDb)
                 .Where(item=> item.Product.Id == productId)
-                .First();
+                .FirstOrDefault();
             if (basketProductDb == null)
             {
                 return false;
