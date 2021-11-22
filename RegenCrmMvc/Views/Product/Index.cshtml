@@ -3,11 +3,36 @@
 *@
 @{
 }
-@model IEnumerable<RegenCrm.Model.Product>
+@model List<RegenCrm.Model.Product>
 
 
 <p>This is the home page for products</p>
-@foreach (var item in Model)
-{
-    @item.Name @item.Price<br />
-}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+        <tr>
+            <td> <a href="/product/get/@product.Id"> @product.Name</a> </td>
+            <td>   @product.Description  </td>
+            <td>   @product.Price  </td>
+            <td>   @product.InventoryQuantity  </td>
+            <td>   @product.Category  </td>
+            <td> <a href="/product/delete/@product.Id"  title="delete" ><b>X</b></a> </td>
+            <td> <a href="/product/update/@product.Id" title="update"><b>V</b></a> </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+<a href="/product/create">Add product</a>

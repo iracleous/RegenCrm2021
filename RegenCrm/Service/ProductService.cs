@@ -67,9 +67,9 @@ namespace RegenCrm.Service
                 .ToList();
         }
 
-        public Product UpdateProduct(int id, Product product)
+        public Product UpdateProduct(int productId, Product product)
         {
-            var dbProduct = _db.Products.Find(id);
+            var dbProduct = _db.Products.Find(productId);
             if (dbProduct == null) throw new KeyNotFoundException();
             dbProduct.Name = product.Name;
             dbProduct.Description = product.Description;
@@ -79,5 +79,16 @@ namespace RegenCrm.Service
             _db.SaveChanges();
             return dbProduct;
         }
+
+        public Product ChangeProductPrice(int productId, decimal newPrice)
+        {
+            var dbProduct = _db.Products.Find(productId);
+            if (dbProduct == null) throw new KeyNotFoundException();
+             dbProduct.Price = newPrice;
+            _db.SaveChanges();
+            return dbProduct;
+        }
+
+
     }
 }

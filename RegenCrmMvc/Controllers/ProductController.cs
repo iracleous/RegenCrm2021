@@ -26,8 +26,41 @@ namespace RegenCrmMvc.Controllers
         public IActionResult Get(int id)
         {
             Product product = productService.ReadProduct(id);
+
+            if (product == null) return NotFound();
             return View(product);
         }
+
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            productService.CreateProduct(product);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        public IActionResult Delete(int id)
+        {
+
+            productService.DeleteProduct(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Update(int id)
+        {
+
+            productService.ChangeProductPrice(id, 4);
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
     }
 }

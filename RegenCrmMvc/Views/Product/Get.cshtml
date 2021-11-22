@@ -7,11 +7,17 @@
 @model RegenCrm.Model.Product
 
 
-<table border="1px" width="50%" bgcolor="silver">
+
+<h1> Product @Model.Name</h1>
+
+
+<table class="table">
     <tr><td><b>id</b></td> <td>@Model.Id</td></tr>
-    <tr><td><b>name</b></td>   <td>@Model.Name</td></tr>
+ 
     <tr><td><b>price</b></td>   <td>@Model.Price</td></tr>
     <tr><td><b>Description</b></td>   <td>@Model.Description</td></tr>
+    <tr><td><b>Category</b></td>   <td>@Model.Category</td></tr>
+
 </table>
   
 

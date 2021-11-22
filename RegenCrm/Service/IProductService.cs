@@ -14,7 +14,9 @@ namespace RegenCrm.Service
            public Product ReadProduct(int id);
             public  List<Product> ReadProduct(int pageCount, int pageSize);
 
-            public Product UpdateProduct(int id, Product product);
+            public Product UpdateProduct(int productId, Product product);
+
+        public Product ChangeProductPrice(int productId, decimal newPrice);
 
               public bool DeleteProduct(int id);
 
