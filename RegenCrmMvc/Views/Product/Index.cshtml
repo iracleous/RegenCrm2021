@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<RegenCrm.Model.Product>
+
+
+<p>This is the home page for products</p>
+@foreach (var item in Model)
+{
+    @item.Name @item.Price<br />
+}
