@@ -1,0 +1,55 @@
+﻿ 
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form  >
+            
+            <div class="form-group">
+                <label value="firstName" class="control-label">firstName</label>
+                <input  type="text"  id="FirstName" class="form-control" />
+                 
+            </div>
+            <div class="form-group">
+                <label value="LastName" class="control-label">LastName</label>
+                <input   type="text" id="LastName" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label value="Email" class="control-label">Email</label>
+                <input  type="text"  id="Email" class="form-control" />
+ 
+            </div>
+            <div class="form-group">
+                <label value="DateOfBirth" class="control-label">DateOfBirth</label>
+                <input type="date" id="DateOfBirth" class="form-control" />
+ 
+            </div>
+    
+            <div class="form-group">
+                <label value="Balance" class="control-label">Balance</label>
+                <input type="number" id="Balance" class="form-control" />
+ 
+            </div>
+            <div class="form-group">
+                <input type="button" id="Create" value="Create" class="btn btn-primary" onclick="saveCustomer()"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
