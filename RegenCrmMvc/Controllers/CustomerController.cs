@@ -15,10 +15,14 @@ namespace RegenCrmMvc.Controllers
 
         private readonly IBasketService _basketService;
         private readonly IProductService _productService;
+        private readonly ICustomerService _customerService;
 
-        public CustomerController (IBasketService basketService, IProductService productService ) {
+        public CustomerController (IBasketService basketService, 
+            IProductService productService,
+            ICustomerService customerService) {
             _basketService = basketService;
             _productService = productService;
+            _customerService = customerService;
         }
 
         // GET: CustomerController
@@ -82,5 +86,19 @@ namespace RegenCrmMvc.Controllers
         {
              return View(basket);
         }
+
+        public IActionResult ShowCustomers()
+        {
+            String lastName = "Star";
+
+            List<Customer> customers = _customerService.ReadCustomer()
+                .Where(customer => customer.LastName.Contains(lastName))
+                .ToList();
+
+
+            return View(customers);
+        }
+
+
     }
 }
