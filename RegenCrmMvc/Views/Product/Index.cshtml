@@ -13,6 +13,7 @@
         <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>image</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Category</th>
@@ -24,6 +25,14 @@
         <tr>
             <td> <a href="/product/get/@product.Id"> @product.Name</a> </td>
             <td>   @product.Description  </td>
+            <td>
+            
+           @if (product.Description != null)
+                {
+                <img src="/images/@product.Description" title ="Product image" width="100px" height="100px" />
+                }
+             
+            </td>
             <td>   @product.Price  </td>
             <td>   @product.InventoryQuantity  </td>
             <td>   @product.Category  </td>

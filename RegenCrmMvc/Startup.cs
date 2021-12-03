@@ -27,7 +27,7 @@ namespace RegenCrmMvc
         {
             services.AddDbContext<CrmDbContext>();
             services.AddScoped<IProductService, ProductService>();
-
+            services.AddScoped<IBasketService, BasketService>();
             services.AddControllersWithViews();
         }
 

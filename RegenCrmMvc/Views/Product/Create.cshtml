@@ -4,38 +4,50 @@
 @{
 }
 @using RegenCrm.Model
+@model ProductWithImage
 
-<form   asp-action="Create" >
+
+
+<form asp-action="Create" enctype="multipart/form-data" >
     <div>
         Name
     </div>
     <div>
-        <input type="text" name="Name" placeholder="Name" />
+        <input asp-for="Product.Name" placeholder="Name" />
     </div>
     <div>
         Description
     </div>
-    <div>
-        <input type="text" name="Description" placeholder="Description" />
-    </div>
+
     <div>
         Price
     </div>
     <div>
-        <input type="text" name="Price" placeholder="Price" />
+        <input asp-for="Product.Price" placeholder="Price" />
     </div>
     <div>
         InventoryQuantity
     </div>
     <div>
-        <input type="number" name="InventoryQuantity" placeholder="InventoryQuantity" />
+        <input asp-for="Product.InventoryQuantity" placeholder="InventoryQuantity" />
     </div>
     <div>
         Category
     </div>
     <div>
-        <select name="Category" placeholder="Category" asp-items="@(Html.GetEnumSelectList<Category>())"></select>
+        <select  asp-for="Product.Category" asp-items="@(Html.GetEnumSelectList<Category>())"></select>
     </div>
+
+    <dl>
+        <dt>
+            <label asp-for="ProductImage"></label>
+        </dt>
+        <dd>
+            <input asp-for="ProductImage" type="file">
+            <span asp-validation-for="ProductImage"></span>
+        </dd>
+    </dl>
+
 
 
     <div class="form-group">
@@ -43,13 +55,12 @@
     </div>
 </form>
 
-   
 
-    
-    
 
-    
 
-     
 
- 
+
+
+
+
+
