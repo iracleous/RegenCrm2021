@@ -10,8 +10,11 @@ namespace RegenCrm.Model
     public class Customer
     {
         public int Id { get; set; }
+        //max length definition
         [MaxLength(50)]
         public string FirstName { get; set; }
+
+        //second change
         [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
